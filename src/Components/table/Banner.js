@@ -176,7 +176,7 @@ const Banner = (props) => {
                               <td> {i + 1}</td>
                               <td>
                                 <img
-                                  src={baseURL + data?.image}
+                                  src={data?.image}
                                   alt="banner"
                                   draggable="false"
                                   className="mx-auto "
