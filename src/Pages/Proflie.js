@@ -10,9 +10,6 @@ import {
   ChangePassword,
 } from "../store/Admin/admin.action";
 
-import profileImage from "../assets/img/2.jpg";
-import { margin } from "@mui/system";
-
 const Proflie = (props) => {
   const admin = useSelector((state) => state.admin.admin);
 
