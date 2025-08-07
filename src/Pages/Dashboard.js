@@ -100,7 +100,7 @@ const Dashboard = (props) => {
         <div class="col-xl-6 col-md-6 col-sm-12 col-12">
           <h4 className="mb-0 fw-bold">Hi, Welcome back!</h4>
           <p style={{ color: "#e5065e" }} className="fw-bold">
-            Tango app monitoring dashboard.
+            Cherrie app monitoring dashboard.
           </p>
         </div>
         <div class="col-xl-6 col-md-6 col-sm-12 col-12 ">

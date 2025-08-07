@@ -11,7 +11,7 @@ const Error404 = () => {
           <div class="row">
             <div class="col-md-4 mr-auto mt-5 text-md-left text-center">
               <a href="index-2.html" class="ml-md-5">
-                <h3>Tango</h3>
+                <h3>Cherrie</h3>
               </a>
             </div>
           </div>

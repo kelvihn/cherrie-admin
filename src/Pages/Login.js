@@ -55,7 +55,7 @@ const Login = (props) => {
                 </div>
                 <h3 className="mt-4" style={{ fontWeight: "bold", color: "#673ab7" }}>
                  
-                  Log In Tengo
+                  Cherrie Admin Login
                 </h3>
                 <p className=" mt-4" style={{color:"#000"}}> Sign in with Email address.</p>
 

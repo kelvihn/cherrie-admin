@@ -21,9 +21,23 @@ const BannerDialog = (props) => {
   const [imagePath, setImagePath] = useState("");
   const [error, setError] = useState("");
 
+  // Helper function to construct proper image URL
+  const getImageUrl = (imageUrl) => {
+    if (!imageUrl) return "";
+    
+    // If it's already a full URL (Cloudinary), return as-is
+    if (imageUrl.startsWith('http://') || imageUrl.startsWith('https://')) {
+      return imageUrl;
+    }
+    
+    // If it's a relative path (old local storage), prepend baseURL
+    return baseURL + imageUrl;
+  };
+
   useEffect(() => {
     setUrl(dialogData?.url);
-    setImagePath(baseURL + dialogData?.image);
+    // Use the helper function instead of always prepending baseURL
+    setImagePath(getImageUrl(dialogData?.image));
   }, [dialogData]);
 
   useEffect(
@@ -73,6 +87,7 @@ const BannerDialog = (props) => {
     setImage(e.target.files[0]);
     setImagePath(URL.createObjectURL(e.target.files[0]));
   };
+  
   return (
     <>
       <Dialog
@@ -106,7 +121,6 @@ const BannerDialog = (props) => {
             <div className="d-flex flex-column">
               <form>
                 <div className="form-group ">
-                  {/* <label className="form-label fw-bold mt-3">Url</label> */}
                   <div className="form-floating">
                     <input
                       type="text"
@@ -176,7 +190,6 @@ const BannerDialog = (props) => {
                       />
                     )}
                   </div>
-
 
                   {error.image && (
                     <div className="ml-1 mt-1">
