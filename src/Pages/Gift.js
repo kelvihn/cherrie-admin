@@ -111,7 +111,7 @@ const Gift = (props) => {
                       <div className="row align-items-center">
                         <div className="col-6">
                           <img
-                            src={baseURL + data.image}
+                            src={data.image}
                             alt=""
                             style={{
                               width: "100px",
