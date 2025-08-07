@@ -22,17 +22,29 @@ const BannerDialog = (props) => {
   const [error, setError] = useState("");
 
   // Helper function to construct proper image URL
-  const getImageUrl = (imageUrl) => {
-    if (!imageUrl) return "";
-    
-    // If it's already a full URL (Cloudinary), return as-is
-    if (imageUrl.startsWith('http://') || imageUrl.startsWith('https://')) {
-      return imageUrl;
-    }
-    
-    // If it's a relative path (old local storage), prepend baseURL
-    return baseURL + imageUrl;
-  };
+const getImageUrl = (imageUrl) => {
+  if (!imageUrl) return "";
+  
+  // Check if the imageUrl contains baseURL + Cloudinary URL pattern
+  if (imageUrl.includes(baseURL + 'https://')) {
+    // Extract just the Cloudinary URL part
+    return imageUrl.replace(baseURL, '');
+  }
+  
+  // Check if it contains baseURL + http pattern
+  if (imageUrl.includes(baseURL + 'http://')) {
+    // Extract just the Cloudinary URL part
+    return imageUrl.replace(baseURL, '');
+  }
+  
+  // If it's already a pure Cloudinary/external URL (doesn't contain baseURL)
+  if ((imageUrl.startsWith('http://') || imageUrl.startsWith('https://')) && !imageUrl.includes(baseURL)) {
+    return imageUrl;
+  }
+  
+  // If it's a relative path (old local storage), prepend baseURL
+  return baseURL + imageUrl;
+};
 
   useEffect(() => {
     setUrl(dialogData?.url);
